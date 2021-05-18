@@ -14,11 +14,11 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class PlayerServiceImpl implements PlayerService {
 
-	@Autowired
 	private PlayerDAO playerDao;
-	
-	
-	public PlayerServiceImpl() {
+
+	@Autowired
+	public PlayerServiceImpl(PlayerDAO playerDao) {
+		this.playerDao = playerDao;
 	}
 
 	@Override
@@ -41,7 +41,6 @@ public class PlayerServiceImpl implements PlayerService {
 	@Override
 	public int deletePlayer(int id) {
 		return playerDao.removePlayer(id);
-		
 	}
 
 }
