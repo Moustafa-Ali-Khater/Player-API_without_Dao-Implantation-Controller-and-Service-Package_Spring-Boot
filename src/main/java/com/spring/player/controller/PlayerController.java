@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // http://localhost:8080/
 @Controller
@@ -34,9 +35,17 @@ public class PlayerController {
         return "playerform";
     }
 
+    // http://localhost:8080/savePlayer
     @PostMapping("/savePlayer")
     public String savePlayer(@ModelAttribute("player") Player player){
         playerService.savePlayer(player);
         return "redirect:/players";
+    }
+
+    // http://localhost:8080/getPlayer
+    @GetMapping("/getPlayer")
+    public String getPlayer(@RequestParam("playerId") int id, Model model){
+        model.addAttribute("player",playerService.showPlayer(id));
+        return "playerform";
     }
 }
