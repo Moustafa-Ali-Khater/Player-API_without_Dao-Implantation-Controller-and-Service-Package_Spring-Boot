@@ -7,23 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-//@RepositoryRestResource(path = "persons")
 public interface PlayerDAO extends JpaRepository<Player,Integer> {
 
     Player findByName(@RequestParam String name);
 
 }
-
-//   Player
-/*
-============> http://localhost:8080/api
-
-Get      http://localhost:8080/api/players
-Get      http://localhost:8080/api/players/id
-Post     http://localhost:8080/api/players      body Player
-Put      http://localhost:8080/api/players      body Player
-Delete   http://localhost:8080/api/players/id
-Get      http://localhost:8080/api/players/search/findByName?name=
-
-
-* */
