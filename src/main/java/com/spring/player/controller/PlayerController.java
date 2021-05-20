@@ -23,4 +23,10 @@ public class PlayerController {
         model.addAttribute("players",playerService.allPlayers());
         return "home";
     }
+
+    // http://localhost:8080/player-form
+    @GetMapping("player-form")
+    public String playerForm(){
+        return "playerform";
+    }
 }
