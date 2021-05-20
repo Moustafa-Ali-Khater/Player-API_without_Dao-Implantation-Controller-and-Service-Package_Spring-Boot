@@ -12,7 +12,6 @@ public interface PlayerDAO extends JpaRepository<Player,Integer> {
 
     Player findByName(@RequestParam String name);
 
-    List<Player> findByNameContaining(@RequestParam String name);
 }
 
 //   Player
@@ -24,8 +23,7 @@ Get      http://localhost:8080/api/players/id
 Post     http://localhost:8080/api/players      body Player
 Put      http://localhost:8080/api/players      body Player
 Delete   http://localhost:8080/api/players/id
-Get      http://localhost:8080/api/players/getbyName?name=
-Get      http://localhost:8080/api/players/search/findByNameContaining?name=
+Get      http://localhost:8080/api/players/search/findByName?name=
 
 
 * */
